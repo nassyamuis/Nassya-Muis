@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">PMT</string>
+    <string name="season">Season</string>
+
+    <string-array name="list_season">
+        <item>Summer</item>
+        <item>Winter</item>
+        <item>Spring</item>
+        <item>Autumn</item>
+    </string-array>
+</resources>
