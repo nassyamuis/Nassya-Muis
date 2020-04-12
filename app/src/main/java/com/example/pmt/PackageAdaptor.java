@@ -26,7 +26,7 @@ public class PackageAdaptor extends BaseAdapter{
     private ArrayList<String> pckg_title;
     private ArrayList<Bitmap> pckg_image;
 
-    public PackageAdaptor(Context c, ArrayList<String> price, ArrayList<String> season, ArrayList<String> start, ArrayList<String> end, ArrayList<String> contact, ArrayList<String> title, ArrayList<Bitmap> image){
+    public PackageAdaptor(Context c, ArrayList<String> price, ArrayList<String> season, ArrayList<String> start, ArrayList<String> end, ArrayList<String> contact, ArrayList<String> title){
         this.c = c;
         pckg_price = price;
         pckg_season = season;
@@ -34,7 +34,7 @@ public class PackageAdaptor extends BaseAdapter{
         pckg_end = end;
         agent_contact = contact;
         pckg_title = title;
-        pckg_image = image;
+//        pckg_image = image;
     }
 
     @Override

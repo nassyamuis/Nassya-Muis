@@ -46,11 +46,11 @@ public class DisplayAndCompare extends AppCompatActivity {
             ArrayList<String> pckg_end = result.get(3);
             ArrayList<String> agent_contact = result.get(4);
             ArrayList<String> pckg_title = result.get(5);
-            ArrayList<URL> url = new URL(result.get(6));
-            Bitmap bmp = BitmapFactory.decodeStream(url.openConnection().getInputStream());
-            ArrayList<String> pckg_image = result.get(6);
+//            ArrayList<URL> url = new URL(result.get(6));
+//            Bitmap bmp = BitmapFactory.decodeStream(url.openConnection().getInputStream());
+//            ArrayList<String> pckg_image = result.get(6);
 
-            PackageAdaptor packages = new PackageAdaptor(this, pckg_price, pckg_season, pckg_start, pckg_end, agent_contact, pckg_title,pckg_image);
+            PackageAdaptor packages = new PackageAdaptor(this, pckg_price, pckg_season, pckg_start, pckg_end, agent_contact, pckg_title);
             show_pckg.setAdapter(packages);
 
         } catch (Exception e) {

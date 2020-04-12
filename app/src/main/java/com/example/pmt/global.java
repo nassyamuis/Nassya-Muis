@@ -1,5 +1,5 @@
 package com.example.pmt;
 
 public class global {
-    public static String link = "http://10.237.15.150/PlanMyTrip/";
+    public static String link = "http://192.168.0.9/PlanMyTrip/";
 }

@@ -15,14 +15,10 @@ public class GetKoreanVisa extends AsyncTask<String, String, ArrayList<String>> 
     @Override
     protected ArrayList<String> doInBackground(String... strings) {
         ArrayList<String> korean_visa = new ArrayList<String>();
-
         String link = global.link + "Get%20Korean%20Visa.php";
-
         HttpURLConnection conn = null;
-
         try{
             URL url = new URL(link);
-
             conn = (HttpURLConnection) url.openConnection();
             conn.connect();
 
@@ -35,8 +31,9 @@ public class GetKoreanVisa extends AsyncTask<String, String, ArrayList<String>> 
 
                 /*for(int i = 0; i < splitResult.length; i++){
                     String[] split2 = splitResult[i].split(",");*/
-
+                    if(!splitResult[0].equals(""))
                     korean_visa.add(splitResult[0]);
+                    if(!splitResult[1].equals(""))
                     korean_visa.add(splitResult[1]);
                 //}
             }
