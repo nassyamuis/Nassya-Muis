@@ -4,13 +4,18 @@ import android.content.Intent;
 import android.graphics.BitmapFactory;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.ArrayAdapter;
 import android.widget.GridView;
 import android.widget.TextView;
 import android.graphics.Bitmap;
 
 import org.jsoup.Jsoup;
+
+import java.io.BufferedInputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.net.URLConnection;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -19,6 +24,8 @@ import org.jsoup.nodes.Element;
 
 import java.net.MalformedURLException;
 import java.net.URL;
+
+import static android.content.ContentValues.TAG;
 
 public class DisplayAndCompare extends AppCompatActivity {
 
@@ -46,15 +53,18 @@ public class DisplayAndCompare extends AppCompatActivity {
             ArrayList<String> pckg_end = result.get(3);
             ArrayList<String> agent_contact = result.get(4);
             ArrayList<String> pckg_title = result.get(5);
-//            ArrayList<URL> url = new URL(result.get(6));
+            ArrayList<String> url = (result.get(7));
 //            Bitmap bmp = BitmapFactory.decodeStream(url.openConnection().getInputStream());
-//            ArrayList<String> pckg_image = result.get(6);
+//            ArrayList<Bitmap> bmp = getImageBitmap(result.get(6));
+            ArrayList<Bitmap> pckg_image = result.get(6);
 
-            PackageAdaptor packages = new PackageAdaptor(this, pckg_price, pckg_season, pckg_start, pckg_end, agent_contact, pckg_title);
+            PackageAdaptor packages = new PackageAdaptor(this, pckg_price, pckg_season, pckg_start, pckg_end, agent_contact, pckg_title, pckg_image);
+//            PackageAdaptor packages = new PackageAdaptor(this, pckg_price, pckg_season, pckg_start, pckg_end, agent_contact, pckg_title, url);
             show_pckg.setAdapter(packages);
 
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
+
 }

@@ -33,4 +33,5 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
     implementation 'org.jsoup:jsoup:1.12.1'
     implementation files('libs/mysql-connector-java-5.1.23-bin.jar')
+//    implementation 'com.squareup.picasso:picasso:2.71828'
 }

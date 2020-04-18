@@ -21,7 +21,6 @@ public class VisaInformation extends AppCompatActivity {
             GetKoreanVisa connectVisa = new GetKoreanVisa();
             connectVisa.execute();
 
-
             final ArrayAdapter visaAdaptor = new ArrayAdapter(this, android.R.layout.simple_list_item_1, connectVisa.get());
 //            TextView visaText = findViewById(R.id.text1);
 //            ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,R.array.connectVisa.get(),android.R.layout.simple_list_item_1);

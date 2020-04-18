@@ -1,17 +1,13 @@
 package com.example.pmt;
-
 import android.os.AsyncTask;
 import android.util.Log;
-
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 public class GetKoreanVisa extends AsyncTask<String, String, ArrayList<String>> {
-
     @Override
     protected ArrayList<String> doInBackground(String... strings) {
         ArrayList<String> korean_visa = new ArrayList<String>();
@@ -23,9 +19,7 @@ public class GetKoreanVisa extends AsyncTask<String, String, ArrayList<String>> 
             conn.connect();
 
             BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream()));
-
             String line;
-
             while((line = in.readLine()) != null){
                 String[] splitResult = line.split("\\|");
 
