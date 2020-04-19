@@ -5,10 +5,13 @@ import android.graphics.BitmapFactory;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.GridView;
 import android.widget.TextView;
 import android.graphics.Bitmap;
+import android.widget.Toast;
 
 import org.jsoup.Jsoup;
 
@@ -60,7 +63,15 @@ public class DisplayAndCompare extends AppCompatActivity {
 
             PackageAdaptor packages = new PackageAdaptor(this, pckg_price, pckg_season, pckg_start, pckg_end, agent_contact, pckg_title, pckg_image);
 //            PackageAdaptor packages = new PackageAdaptor(this, pckg_price, pckg_season, pckg_start, pckg_end, agent_contact, pckg_title, url);
+//            show_pckg.getLayoutParams().height = 200;
             show_pckg.setAdapter(packages);
+
+            show_pckg.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                    Toast.makeText(getApplicationContext(),"You Clicked "+result.get(position),Toast.LENGTH_SHORT).show();
+                }
+            });
 
         } catch (Exception e) {
             e.printStackTrace();

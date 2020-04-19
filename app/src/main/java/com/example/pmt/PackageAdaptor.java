@@ -69,7 +69,7 @@ public class PackageAdaptor extends BaseAdapter{
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        View pckg_grid;
+        View pckg_grid = convertView;
         LayoutInflater inflater = (LayoutInflater) c.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         pckg_grid = inflater.inflate(R.layout.package_grid, null);
         ImageView image = pckg_grid.findViewById((R.id.imageView2));
@@ -88,6 +88,9 @@ public class PackageAdaptor extends BaseAdapter{
         end.setText(pckg_end.get(position));
         contact.setText(agent_contact.get(position));
 
+//        pckg_grid.getLayoutParams().height = 100;
+
+//        pckg_grid.setLayoutParams(50,50);
         return pckg_grid;
     }
 }

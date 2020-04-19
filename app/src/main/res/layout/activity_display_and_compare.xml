@@ -1,57 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:background="@drawable/background"
-    tools:context=".DisplayAndCompare">
+    tools:context=".DisplayAndCompare"
+    android:padding="10dp"
+    android:orientation="vertical"
+    android:layout_centerVertical="true"
+    >
 
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="300dp"
         android:layout_height="100dp"
         android:layout_marginTop="25dp"
-        android:contentDescription="@drawable/logo"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/logo" />
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/logo" />
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        app:srcCompat="@drawable/logo" />-->
 
     <TextView
         android:id="@+id/pgk_search"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="148dp"
+        android:layout_marginTop="14dp"
         android:text="PACKAGES"
         android:textColor="#3b4350"
         android:textSize="20sp"
         android:textStyle="bold"
         android:typeface="normal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/imageView"/>
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent" />-->
+
+    <GridView
+        android:id="@+id/pckg_details"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:layout_marginTop="10dp"
+        android:numColumns="2"
+        android:verticalSpacing="0dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/pgk_search"
+        android:stretchMode="columnWidth"
+        />
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/pgk_search" />-->
 
     <Button
         android:id="@+id/btn_season"
         android:layout_width="345dp"
         android:layout_height="60dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="10dp"
         android:padding="15dp"
         android:text="compare"
         android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/pckg_details" />
-
-    <GridView
-        android:id="@+id/pckg_details"
-        android:layout_width="395dp"
-        android:layout_height="287dp"
-        android:layout_marginTop="44dp"
-        android:numColumns="2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/pgk_search" />
-
-</android.support.constraint.ConstraintLayout>
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/pckg_details"
+        />
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/pckg_details" />-->
+</RelativeLayout>
