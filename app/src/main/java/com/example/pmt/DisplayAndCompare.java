@@ -57,8 +57,6 @@ public class DisplayAndCompare extends AppCompatActivity {
             ArrayList<String> agent_contact = result.get(4);
             ArrayList<String> pckg_title = result.get(5);
             ArrayList<String> url = (result.get(7));
-//            Bitmap bmp = BitmapFactory.decodeStream(url.openConnection().getInputStream());
-//            ArrayList<Bitmap> bmp = getImageBitmap(result.get(6));
             ArrayList<Bitmap> pckg_image = result.get(6);
 
             PackageAdaptor packages = new PackageAdaptor(this, pckg_price, pckg_season, pckg_start, pckg_end, agent_contact, pckg_title, pckg_image);
@@ -69,7 +67,30 @@ public class DisplayAndCompare extends AppCompatActivity {
             show_pckg.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                    Toast.makeText(getApplicationContext(),"You Clicked "+result.get(position),Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(getApplicationContext(),"You Clicked "+result.get(position),Toast.LENGTH_SHORT).show();
+                    if(global.checkState.get(position)){
+                        global.clickAmount -= 1;
+
+                        packages.updateCheck(position);
+
+                        //edit cancel choose (hapus data dri arraylist)
+                    }else{
+                        if(global.clickAmount < 2){
+                            packages.updateCheck(position);
+
+                            global.clickAmount += 1;
+
+                            //edit tambah data ke arraylist di global
+                            global.compare_title.add(pckg_title.get(position));
+                            global.compare_price.add(pckg_price.get(position));
+                            global.compare_start.add(pckg_start.get(position));
+                            global.compare_end.add(pckg_end.get(position));
+                            //global.compare_itinerary.add(.get(position));
+                        }else{
+                            Toast.makeText(getApplicationContext(),"Compare limit reached",Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                    packages.updateCheck(position);
                 }
             });
 

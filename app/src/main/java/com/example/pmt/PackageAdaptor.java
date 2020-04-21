@@ -10,6 +10,7 @@ import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 //import com.squareup.picasso.Picasso;
 
@@ -23,6 +24,8 @@ import java.net.URL;
 import java.net.URLConnection;
 import java.util.ArrayList;
 import java.util.BitSet;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.zip.Inflater;
 
 import static android.content.ContentValues.TAG;
@@ -36,7 +39,6 @@ public class PackageAdaptor extends BaseAdapter{
     private ArrayList<String> pckg_end;
     private ArrayList<String> agent_contact;
     private ArrayList<String> pckg_title;
-    private ArrayList<String> pckg_img_url;
     private ArrayList<Bitmap> pckg_image;
 
     public PackageAdaptor(Context c, ArrayList<String> price, ArrayList<String> season, ArrayList<String> start, ArrayList<String> end, ArrayList<String> contact, ArrayList<String> title, ArrayList<Bitmap> image){
@@ -50,6 +52,21 @@ public class PackageAdaptor extends BaseAdapter{
         pckg_title = title;
 //        pckg_img_url = img_url;
         pckg_image = image;
+
+        global.checkState = new ArrayList<Boolean>();
+
+        for(int i = 0; i < pckg_title.size(); i++){
+            global.checkState.add(false);
+        }
+
+        global.clickAmount = 0;
+        //Collections.fill(checkState,Boolean.FALSE);
+    }
+
+    public void updateCheck(int updateIndex){
+        global.checkState.set(updateIndex, !global.checkState.get(updateIndex));
+
+        notifyDataSetChanged();
     }
 
     @Override
@@ -72,6 +89,7 @@ public class PackageAdaptor extends BaseAdapter{
         View pckg_grid = convertView;
         LayoutInflater inflater = (LayoutInflater) c.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         pckg_grid = inflater.inflate(R.layout.package_grid, null);
+        ImageView checkBox = pckg_grid.findViewById((R.id.imageView));
         ImageView image = pckg_grid.findViewById((R.id.imageView2));
         TextView title = pckg_grid.findViewById(R.id.textView);
         TextView price = pckg_grid.findViewById(R.id.textView7);
@@ -88,9 +106,11 @@ public class PackageAdaptor extends BaseAdapter{
         end.setText(pckg_end.get(position));
         contact.setText(agent_contact.get(position));
 
-//        pckg_grid.getLayoutParams().height = 100;
-
-//        pckg_grid.setLayoutParams(50,50);
+        if(global.checkState.get(position)){
+            checkBox.setVisibility(View.VISIBLE);
+        }else{
+            checkBox.setVisibility(View.INVISIBLE);
+        }
         return pckg_grid;
     }
 }
