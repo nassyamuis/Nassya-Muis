@@ -21,7 +21,7 @@ public class GetPackages extends AsyncTask<String, ArrayList, ArrayList> {
     private ArrayList<String> agent_contact = new ArrayList<String>();
     private ArrayList<String> pckg_title = new ArrayList<String>();
     private ArrayList<Bitmap> pckg_image = new ArrayList<Bitmap>();
-    private ArrayList<String> pckg_img_url = new ArrayList<String>();
+    private ArrayList<String> pckg_id = new ArrayList<String>();
 
     private Context c;
     private GridView grid;
@@ -52,7 +52,7 @@ public class GetPackages extends AsyncTask<String, ArrayList, ArrayList> {
                 agent_contact.add(split[4]);
                 pckg_title.add(split[5]);
                 pckg_image.add(getImage(split[6]));
-                pckg_img_url.add(split[6]);
+                pckg_id.add(split[7]);
             }
 
             result.add(pckg_price);
@@ -62,7 +62,7 @@ public class GetPackages extends AsyncTask<String, ArrayList, ArrayList> {
             result.add(agent_contact);
             result.add(pckg_title);
             result.add(pckg_image);
-            result.add(pckg_img_url);
+            result.add(pckg_id);
         }catch (Exception e){
 
         }

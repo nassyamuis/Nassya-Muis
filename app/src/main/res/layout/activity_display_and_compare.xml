@@ -19,10 +19,6 @@
         android:layout_marginTop="25dp"
         android:layout_centerHorizontal="true"
         android:src="@drawable/logo" />
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent"-->
-<!--        app:srcCompat="@drawable/logo" />-->
 
     <TextView
         android:id="@+id/pgk_search"
@@ -36,9 +32,6 @@
         android:typeface="normal"
         android:layout_centerHorizontal="true"
         android:layout_below="@id/imageView"/>
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent" />-->
 
     <GridView
         android:id="@+id/pckg_details"
@@ -51,9 +44,6 @@
         android:layout_below="@id/pgk_search"
         android:stretchMode="columnWidth"
         />
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/pgk_search" />-->
 
     <Button
         android:id="@+id/btn_season"

@@ -1,12 +1,15 @@
 package com.example.pmt;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -29,6 +32,7 @@ import java.util.Collections;
 import java.util.zip.Inflater;
 
 import static android.content.ContentValues.TAG;
+import android.support.v7.app.AppCompatActivity;
 
 public class PackageAdaptor extends BaseAdapter{
     private Context c;
@@ -40,8 +44,9 @@ public class PackageAdaptor extends BaseAdapter{
     private ArrayList<String> agent_contact;
     private ArrayList<String> pckg_title;
     private ArrayList<Bitmap> pckg_image;
+    private ArrayList<String> pckg_id;
 
-    public PackageAdaptor(Context c, ArrayList<String> price, ArrayList<String> season, ArrayList<String> start, ArrayList<String> end, ArrayList<String> contact, ArrayList<String> title, ArrayList<Bitmap> image){
+    public PackageAdaptor(Context c, ArrayList<String> price, ArrayList<String> season, ArrayList<String> start, ArrayList<String> end, ArrayList<String> contact, ArrayList<String> title, ArrayList<Bitmap> image, ArrayList<String> id){
 //public PackageAdaptor(Context c, ArrayList<String> price, ArrayList<String> season, ArrayList<String> start, ArrayList<String> end, ArrayList<String> contact, ArrayList<String> title,  ArrayList<String> img_url){
         this.c = c;
         pckg_price = price;
@@ -50,8 +55,8 @@ public class PackageAdaptor extends BaseAdapter{
         pckg_end = end;
         agent_contact = contact;
         pckg_title = title;
-//        pckg_img_url = img_url;
         pckg_image = image;
+        pckg_id = id;
 
         global.checkState = new ArrayList<Boolean>();
 
@@ -97,6 +102,7 @@ public class PackageAdaptor extends BaseAdapter{
         TextView start = pckg_grid.findViewById(R.id.textView5);
         TextView end = pckg_grid.findViewById(R.id.textView6);
         TextView contact = pckg_grid.findViewById(R.id.textView8);
+        Button details = pckg_grid.findViewById(R.id.btn_details);
 
         image.setImageBitmap(pckg_image.get(position));
         title.setText(pckg_title.get(position));
@@ -105,6 +111,16 @@ public class PackageAdaptor extends BaseAdapter{
         start.setText(pckg_start.get(position));
         end.setText(pckg_end.get(position));
         contact.setText(agent_contact.get(position));
+
+        //handle button click to packages detail for each packages
+        details.setOnClickListener(new Button.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent details_pckg = new Intent(c,PackageDetails.class);
+                details_pckg.putExtra("id", pckg_id.get(position));
+                c.startActivity(details_pckg);
+            }
+        });
 
         if(global.checkState.get(position)){
             checkBox.setVisibility(View.VISIBLE);
