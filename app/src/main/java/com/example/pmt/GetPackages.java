@@ -69,12 +69,6 @@ public class GetPackages extends AsyncTask<String, ArrayList, ArrayList> {
         return result;
     }
 
-    /*@Override
-    public void onPostExecute(Void aVoid) {
-        PackageAdaptor packages = new PackageAdaptor(c, pckg_price, pckg_season, pckg_start, pckg_end, agent_contact, pckg_title, pckg_image);
-        grid.setAdapter(packages);
-    }*/
-
     public Bitmap getImage(String imageName){
         String link = imageName;
 

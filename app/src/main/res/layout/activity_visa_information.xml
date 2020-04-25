@@ -7,7 +7,6 @@
     android:background="@drawable/background"
     tools:context=".VisaInformation">
 
-
     <TextView
         android:id="@+id/visa_info"
         android:layout_width="wrap_content"
@@ -46,15 +45,6 @@
             android:layout_width="match_parent"
             android:layout_height="500dp"
             android:orientation="vertical">
-<!--            <TextView-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:text="Test1"-->
-<!--                android:layout_marginTop="10dp"-->
-<!--                android:id="@+id/text1"-->
-<!--                android:padding="20dp"-->
-<!--                android:textSize="18dp"-->
-<!--                />-->
             <ListView
                 android:id="@+id/listView"
                 android:layout_width="match_parent"
