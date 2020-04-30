@@ -40,28 +40,37 @@ public class DisplayAndCompare extends AppCompatActivity {
             show_pckg.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                    //Toast.makeText(getApplicationContext(),"You Clicked "+result.get(position),Toast.LENGTH_SHORT).show();
                     if(global.checkState.get(position)){
                         global.clickAmount -= 1;
                         packages.updateCheck(position);
                         //edit cancel choose (hapus data dri arraylist)
+                        if(global.id1 == pckg_id.get(position)){
+                            global.id1 = "";
+                            global.image1 = null;
+                        }else if(global.id2 == pckg_id.get(position)){
+                            global.id2 = "";
+                            global.image2 = null;
+                        }
                     }else{
                         if(global.clickAmount < 2){
                             packages.updateCheck(position);
                             global.clickAmount += 1;
 
                             //edit tambah data ke arraylist di global
-                            global.compare_title.add(pckg_title.get(position));
-                            global.compare_price.add(pckg_price.get(position));
-                            global.compare_start.add(pckg_start.get(position));
-                            global.compare_end.add(pckg_end.get(position));
-                            //global.compare_itinerary.add(.get(position));
+                            if(global.id1 == ""){
+                                global.id1 = pckg_id.get(position);
+                                global.image1 = pckg_image.get(position);
+                            }else if(global.id2 == ""){
+                                global.id2 = pckg_id.get(position);
+                                global.image2  = pckg_image.get(position);
+                            }
                         }else{
                             Toast.makeText(getApplicationContext(),"Compare limit reached",Toast.LENGTH_SHORT).show();
                         }
                     }
-                    packages.updateCheck(position);
                 }
+
+
             });
 
         } catch (Exception e) {
@@ -69,4 +78,8 @@ public class DisplayAndCompare extends AppCompatActivity {
         }
     }
 
+    public void compareClick(View v){
+        Intent compare = new Intent(this, compare.class);
+        startActivity(compare);
+    }
 }

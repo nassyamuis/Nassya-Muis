@@ -10,6 +10,7 @@
     android:padding="10dp"
     android:orientation="vertical"
     android:layout_centerVertical="true"
+    android:descendantFocusability="blocksDescendants"
     >
 
     <ImageView
@@ -49,13 +50,13 @@
         android:id="@+id/btn_season"
         android:layout_width="345dp"
         android:layout_height="60dp"
+        android:layout_below="@id/pckg_details"
+        android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
+        android:onClick="compareClick"
         android:padding="15dp"
         android:text="compare"
-        android:textSize="18sp"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@id/pckg_details"
-        />
+        android:textSize="18sp" />
 <!--        app:layout_constraintEnd_toEndOf="parent"-->
 <!--        app:layout_constraintStart_toStartOf="parent"-->
 <!--        app:layout_constraintTop_toBottomOf="@+id/pckg_details" />-->
