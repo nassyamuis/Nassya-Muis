@@ -16,11 +16,13 @@ public class SearchPackage extends AppCompatActivity {
     }
 
     public void btn_search(View search_pcg){
+        //handles the budget input
         EditText budget_box = findViewById(R.id.budget);
         String inputbudget = budget_box.getText().toString();
 
         try{
             int budget = Integer.parseInt(inputbudget);
+            //handles the season
             Spinner season_drop = findViewById(R.id.list_season);
             String inputseason = season_drop.getSelectedItem().toString();
 

@@ -1,11 +1,7 @@
 package com.example.pmt;
 
 import android.content.Context;
-import android.graphics.Bitmap;
 import android.os.AsyncTask;
-import android.support.v7.app.AppCompatActivity;
-import android.widget.GridView;
-
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
@@ -14,15 +10,12 @@ import java.util.ArrayList;
 
 public class getData extends AsyncTask<String, ArrayList, ArrayList> {
     private ArrayList<String> result_details = new ArrayList<String>();
-
     private Context c;
-
     public getData(Context c){
         this.c = c;
     }
 
     protected ArrayList<String> doInBackground(String[] objects) {
-
         String link = global.link + "getPackagesID.php?id=" + objects[0];
         HttpURLConnection conn = null;
         try{
@@ -44,6 +37,7 @@ public class getData extends AsyncTask<String, ArrayList, ArrayList> {
             String link_itinerary = global.link + "getItinerary.php?id=" + objects[0];
             HttpURLConnection conn_itinerary = null;
 
+            //connect webserver to get itinerary
             URL url_itinerary= new URL(link_itinerary);
             conn_itinerary = (HttpURLConnection) url_itinerary.openConnection();
             conn_itinerary.connect();

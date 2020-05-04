@@ -10,7 +10,6 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 public class GetPackages extends AsyncTask<String, ArrayList, ArrayList> {
@@ -33,6 +32,7 @@ public class GetPackages extends AsyncTask<String, ArrayList, ArrayList> {
 
     @Override
     protected ArrayList<ArrayList> doInBackground(String[] objects) {
+        //connect webserver to get packages
         ArrayList<ArrayList> result = new ArrayList<>();
 
         String link = global.link + "Get%20Packages.php?Season=" + objects[0] + "&budget=" + objects[1];
@@ -55,6 +55,7 @@ public class GetPackages extends AsyncTask<String, ArrayList, ArrayList> {
                 pckg_id.add(split[7]);
             }
 
+            //get packages information
             result.add(pckg_price);
             result.add(pckg_season);
             result.add(pckg_start);
@@ -71,7 +72,6 @@ public class GetPackages extends AsyncTask<String, ArrayList, ArrayList> {
 
     public Bitmap getImage(String imageName){
         String link = imageName;
-
         HttpURLConnection conn = null;
 
         try{
@@ -79,8 +79,8 @@ public class GetPackages extends AsyncTask<String, ArrayList, ArrayList> {
 
             conn = (HttpURLConnection) url.openConnection();
             BitmapFactory.Options bmOptions = new BitmapFactory.Options();
+            //resize the image
             bmOptions.inSampleSize = 10; // 1 = 100% if you write 4 means 1/4 = 25%
-//            return BitmapFactory.decodeStream(conn.getInputStream(), null, bmOptions);
             Bitmap result = BitmapFactory.decodeStream(conn.getInputStream());
             return getResizedBitmap(result, 300,500);
         }catch (Exception e){

@@ -2,7 +2,6 @@ package com.example.pmt;
 
 import android.content.Context;
 import android.os.AsyncTask;
-
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
@@ -13,13 +12,11 @@ public class GetComparison extends AsyncTask<String, ArrayList, ArrayList> {
     private ArrayList<String> result_details = new ArrayList<String>();
 
     private Context c;
-
     public GetComparison(Context c){
         this.c = c;
     }
 
     protected ArrayList<String> doInBackground(String[] objects) {
-
         String link = global.link + "GetComparison.php?id=" + objects[0];
         HttpURLConnection conn = null;
         try{

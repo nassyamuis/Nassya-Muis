@@ -19,8 +19,8 @@
 
     <ImageView
         android:id="@+id/imageView2"
-    android:layout_width="wrap_content"
-    android:layout_height="150dp"/>
+        android:layout_width="wrap_content"
+        android:layout_height="150dp"/>
 
     <TextView
         android:id="@+id/textView"
@@ -28,7 +28,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:text="Title"
-        android:textSize="18sp"
+        android:textSize="18dp"
         android:textStyle="bold"/>
 
     <TextView
@@ -37,7 +37,7 @@
         android:layout_height="wrap_content"
         android:text="Price"
         android:gravity="center"
-        android:textSize="20sp"/>
+        android:textSize="18dp"/>
 
     <TextView
         android:id="@+id/textView4"
@@ -45,7 +45,7 @@
         android:layout_height="wrap_content"
         android:text="Season"
         android:gravity="center"
-        android:textSize="20sp"/>
+        android:textSize="16dp"/>
 
     <TextView
         android:id="@+id/textView5"
@@ -53,7 +53,7 @@
         android:layout_height="wrap_content"
         android:text="Departure"
         android:gravity="center"
-        android:textSize="20sp"/>
+        android:textSize="16dp"/>
 
     <TextView
         android:id="@+id/textView6"
@@ -61,7 +61,7 @@
         android:layout_height="wrap_content"
         android:text="Arrival"
         android:gravity="center"
-        android:textSize="20sp"
+        android:textSize="16dp"
         />
 
     <TextView
@@ -70,7 +70,7 @@
         android:layout_height="wrap_content"
         android:text="TourAgent"
         android:gravity="center"
-        android:textSize="20sp"/>
+        android:textSize="16dp"/>
 
     <Button
         android:layout_width="wrap_content"
@@ -79,7 +79,7 @@
         android:layout_marginTop="10dp"
         android:padding="15dp"
         android:text="Package Details"
-        android:textSize="18sp"
+        android:textSize="16dp"
         android:layout_centerHorizontal="true"
         android:layout_below="@id/textView8"
         />

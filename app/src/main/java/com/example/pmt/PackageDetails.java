@@ -1,17 +1,11 @@
 package com.example.pmt;
 
-import android.content.Context;
 import android.content.Intent;
-import android.graphics.Bitmap;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
 import android.widget.ArrayAdapter;
-import android.widget.GridView;
 import android.widget.ListView;
 import android.widget.TextView;
-
 import java.util.ArrayList;
 
 public class PackageDetails extends AppCompatActivity {
@@ -24,6 +18,7 @@ public class PackageDetails extends AppCompatActivity {
         Intent details_pckg = getIntent();
         String packagesID = details_pckg.getStringExtra("id");
 
+        //get comparison packages details
         TextView title = findViewById(R.id.title_details);
         TextView price = findViewById(R.id.price_details);
         TextView season = findViewById(R.id.season_details);
@@ -37,6 +32,7 @@ public class PackageDetails extends AppCompatActivity {
             getData pckg_input = new getData(this);
             pckg_input.execute(packagesID);
 
+            //connect webserver to get the result of itinerary
             ArrayList<String> result = pckg_input.get();
             title.setText(result.get(0));
             price.setText(result.get(1));
@@ -45,12 +41,14 @@ public class PackageDetails extends AppCompatActivity {
             end.setText(result.get(4));
             contact.setText(result.get(5));
 
+            //get itinerary details
             ArrayList<String> details_itinerary = result;
 
-            for(int i=0; i<6; i++){
+            for(int i = 0; i < 6; i++){
                details_itinerary.remove(0);
             }
 
+            //insert data to array adapter
             ArrayAdapter adapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,details_itinerary);
             itinerary.setAdapter(adapter);
         }catch (Exception e){
