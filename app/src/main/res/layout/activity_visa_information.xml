@@ -48,8 +48,8 @@
             <ListView
                 android:id="@+id/listView"
                 android:layout_width="match_parent"
-                android:dividerHeight="10px"
-                android:layout_height="500dp">
+
+                android:layout_height="400dp">
             </ListView>
         </LinearLayout>
     </ScrollView>

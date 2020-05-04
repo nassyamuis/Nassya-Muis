@@ -5,25 +5,68 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ListView
-        android:id="@+id/comparison1"
+    <TextView
+        android:id="@+id/title_left"
         android:layout_width="200dp"
-        android:layout_height="match_parent"
-        android:clickable="false"
-        android:scrollbars="none"
-        app:layout_constraintEnd_toStartOf="@+id/comparison2"
+        android:layout_height="wrap_content"
+        android:paddingLeft="10dp"
+        android:paddingTop="5dp"
+        android:paddingRight="20dp"
+        android:paddingBottom="5dp"
+        android:text="TextView"
+        android:textColor="#3b4350"
+        android:textSize="18dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/title_right"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="0dp" />
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <ListView
-        android:id="@+id/comparison2"
+    <TextView
+        android:id="@+id/title_right"
         android:layout_width="200dp"
-        android:layout_height="match_parent"
-        android:clickable="false"
-        android:scrollbars="none"
+        android:layout_height="wrap_content"
+        android:paddingLeft="10dp"
+        android:paddingTop="5dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="5dp"
+        android:text="TextView"
+        android:textColor="#3b4350"
+        android:textSize="18dp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/comparison1"
-        tools:layout_editor_absoluteY="0dp" />
+        app:layout_constraintStart_toEndOf="@+id/title_left"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/compare2"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:paddingLeft="10dp"
+        android:paddingTop="5dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="5dp"
+        android:text="TextView"
+        android:textSize="18dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/compare1"
+        app:layout_constraintTop_toBottomOf="@+id/title_right" />
+
+    <TextView
+        android:id="@+id/compare1"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:paddingLeft="10dp"
+        android:paddingTop="5dp"
+        android:paddingRight="20dp"
+        android:paddingBottom="5dp"
+        android:text="TextView"
+        android:textSize="18dp"
+        app:layout_constraintEnd_toStartOf="@+id/compare2"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title_left" />
+
 </android.support.constraint.ConstraintLayout>

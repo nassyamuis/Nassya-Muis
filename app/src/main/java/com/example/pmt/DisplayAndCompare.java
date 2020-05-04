@@ -22,7 +22,10 @@ public class DisplayAndCompare extends AppCompatActivity {
             String inputted_season = data_pckg.getStringExtra("season");
 
             GridView show_pckg = findViewById(R.id.pckg_details);
+
             //connect webserver to get result
+            global.id1 = "";
+            global.id2 = "";
             GetPackages pckg_input = new GetPackages(this, show_pckg);
             pckg_input.execute(inputted_season, "IDR " + inputted_budget);
 

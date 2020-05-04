@@ -110,8 +110,8 @@
 
             <ListView
                 android:id="@+id/itinerary_details"
-                android:layout_width="409dp"
-                android:layout_height="401dp">
+                android:layout_width="match_parent"
+                android:layout_height="300dp">
             </ListView>
         </LinearLayout>
     </ScrollView>

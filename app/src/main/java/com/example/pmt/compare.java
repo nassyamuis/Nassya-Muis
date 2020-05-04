@@ -20,11 +20,7 @@ public class compare extends AppCompatActivity {
         try {
             ImageView show_image1 = findViewById(R.id.imageView3);
             ImageView show_image2 = findViewById(R.id.imageView4);
-//            ListView comparison_result1 = findViewById(R.id.comparison_1);
-//            ListView comparison_result2 = findViewById(R.id.comparison_2);
-//            GridView comparison_result1 = findViewById(R.id.comparison_1);
-//            GridView comparison_result2 = findViewById(R.id.comparison_2);
-            ListView compare_result1 = findViewById(R.id.comparison1);
+            GridView comparison_result1 = findViewById(R.id.comparison_1);
 
             //connect webserver to get comparison result
             GetComparison get_result1 = new GetComparison(this);
@@ -35,18 +31,79 @@ public class compare extends AppCompatActivity {
             //get comparison result
             ArrayList<String> show_pckg1 = get_result1.get();
             ArrayList<String> show_pckg2 = get_result2.get();
+            ArrayList<String> data_result = new ArrayList<>();
 
             //get the image from database
             show_image1.setImageBitmap(global.image1);
             show_image2.setImageBitmap(global.image2);
 
-            //insert data to each listview
-            CompareAdaptor packages = new CompareAdaptor(this, show_pckg1, show_pckg2);
-            compare_result1.setAdapter(packages);
-//            ArrayAdapter adapter1 = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,show_pckg1);
-//            ArrayAdapter adapter2 = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,show_pckg2);
-//            comparison_result1.setAdapter(adapter1);
-//            comparison_result2.setAdapter(adapter2);
+            //jumlah data 1 lebih besar sama dengan data2
+            if(show_pckg1.size() >= show_pckg2.size()){
+                for(int i = 0; i < show_pckg1.size(); i++){
+                    String data = "";
+                    if(i == 0){
+                        data = "Package|";
+                    }else if(i == 1){
+                        data = "Price|";
+                    }else if(i == 2){
+                        data = "Season|";
+                    }else if(i == 3){
+                        data = "Depart Date|";
+                    }else if(i == 4){
+                        data = "Arrival Date|";
+                    }else if(i == 5){
+                        data = "Agent Contact|";
+                    }else if(i == 6){
+                        data = "Itinerary|";
+                    }else{
+                        data="|";
+                    }
+                    data += show_pckg1.get(i) + "|";
+
+                    if(i < show_pckg2.size()){
+                        data += show_pckg2.get(i);
+                    }else{
+                        data += " ";
+                    }
+
+                    data_result.add(data);
+                }
+            }else{ //data 2 lebih besar atau sama dengan data1
+                for(int i = 0; i < show_pckg2.size(); i++){
+                    String data = "";
+                    if(i == 0){
+                        data = "Package|";
+                    }else if(i == 1){
+                        data = "Price|";
+                    }else if(i == 2){
+                        data = "Season|";
+                    }else if(i == 3){
+                        data = "Depart Date|";
+                    }else if(i == 4){
+                        data = "Arrival Date|";
+                    }else if(i == 5){
+                        data = "Agent Contact|";
+                    }else if(i == 6){
+                        data = "Itinerary|";
+                    }else {
+                        data="|";
+                    }
+
+                    data += show_pckg2.get(i) + "|";
+
+                    if(i < show_pckg1.size()){
+                        data += show_pckg1.get(i);
+                    }else{
+                        data += " ";
+                    }
+                    data_result.add(data);
+                }
+            }
+
+            //insert data to each textview
+            CompareAdaptor packages = new CompareAdaptor(this, data_result);
+            comparison_result1.setAdapter(packages);
+
         }catch (Exception e){
 
         }
