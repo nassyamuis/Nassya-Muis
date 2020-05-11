@@ -25,7 +25,7 @@ public class PackageAdaptor extends BaseAdapter{
 
     //insert data to package adaptor for packages
     public PackageAdaptor(Context c, ArrayList<String> price, ArrayList<String> season, ArrayList<String> start, ArrayList<String> end, ArrayList<String> contact, ArrayList<String> title, ArrayList<Bitmap> image, ArrayList<String> id){
-//public PackageAdaptor(Context c, ArrayList<String> price, ArrayList<String> season, ArrayList<String> start, ArrayList<String> end, ArrayList<String> contact, ArrayList<String> title,  ArrayList<String> img_url){
+
         this.c = c;
         pckg_price = price;
         pckg_season = season;
@@ -94,7 +94,7 @@ public class PackageAdaptor extends BaseAdapter{
         details.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent details_pckg = new Intent(c,PackageDetails.class);
+                Intent details_pckg = new Intent(c, PackageDetails.class);
                 details_pckg.putExtra("id", pckg_id.get(position));
                 c.startActivity(details_pckg);
             }

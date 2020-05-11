@@ -10,7 +10,7 @@
         android:id="@+id/imageView"
         android:layout_width="300dp"
         android:layout_height="100dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="15dp"
         android:contentDescription="@drawable/logo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
@@ -22,7 +22,7 @@
         android:id="@+id/pgk_search"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:text="COMPARISON"
         android:textColor="#3b4350"
         android:textSize="20dp"
@@ -34,7 +34,7 @@
 
     <ImageView
         android:id="@+id/imageView3"
-        android:layout_width="150dp"
+        android:layout_width="160dp"
         android:layout_height="110dp"
         android:layout_marginTop="20dp"
         app:layout_constraintEnd_toStartOf="@+id/imageView4"
@@ -46,7 +46,7 @@
 
     <ImageView
         android:id="@+id/imageView4"
-        android:layout_width="150dp"
+        android:layout_width="160dp"
         android:layout_height="110dp"
         android:layout_marginTop="20dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -70,5 +70,31 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+
+    <ImageView
+        android:id="@+id/recommended_right"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginEnd="36dp"
+        android:layout_marginRight="36dp"
+        android:layout_marginBottom="10dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/imageView4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pgk_search"
+        app:srcCompat="@drawable/recommended" />
+
+    <ImageView
+        android:id="@+id/recommended_left"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginLeft="36dp"
+        android:layout_marginBottom="10dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/imageView3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pgk_search"
+        app:srcCompat="@drawable/recommended" />
 
 </android.support.constraint.ConstraintLayout>

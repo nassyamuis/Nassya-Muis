@@ -26,12 +26,12 @@ public class getData extends AsyncTask<String, ArrayList, ArrayList> {
             String line;
             while((line = in.readLine()) != null){
                 String[] split = line.split("\\|");
-                result_details.add(split[0]); //title
-                result_details.add(split[1]); //price
-                result_details.add(split[2]); //season
-                result_details.add(split[3]); //depart
-                result_details.add(split[4]); //arrival
-                result_details.add(split[5]); //agent's contact
+                result_details.add(split[0]);                                                       //title
+                result_details.add(split[1]);                                                       //price
+                result_details.add(split[2]);                                                       //season
+                result_details.add(split[3]);                                                       //depart
+                result_details.add(split[4]);                                                       //arrival
+                result_details.add(split[5]);                                                       //agent's contact
             }
 
             String link_itinerary = global.link + "getItinerary.php?id=" + objects[0];

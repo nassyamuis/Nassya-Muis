@@ -11,7 +11,7 @@
         android:id="@+id/imageView"
         android:layout_width="300dp"
         android:layout_height="100dp"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="5dp"
         android:contentDescription="@drawable/logo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -22,7 +22,7 @@
         android:id="@+id/pgk_search"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="25dp"
         android:text="SEARCH  PACKAGE"
         android:textColor="#3b4350"
         android:textSize="18dp"
@@ -36,13 +36,14 @@
         android:id="@+id/budget"
         android:layout_width="345dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="92dp"
+        android:layout_marginTop="100dp"
         android:hint="Budget"
         android:inputType="number"
         android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/pgk_search" />
+        app:layout_constraintTop_toBottomOf="@+id/pgk_search"
+        android:gravity="center_horizontal" />
 
     <Spinner
         android:id="@+id/list_season"
@@ -55,7 +56,7 @@
         app:layout_constraintTop_toBottomOf="@+id/budget" />
 
     <Button
-        android:id="@+id/btn_season"
+        android:id="@+id/btn_search"
         android:layout_width="345dp"
         android:layout_height="60dp"
         android:layout_marginTop="56dp"

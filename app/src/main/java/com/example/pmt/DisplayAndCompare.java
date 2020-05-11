@@ -23,7 +23,6 @@ public class DisplayAndCompare extends AppCompatActivity {
 
             GridView show_pckg = findViewById(R.id.pckg_details);
 
-            //connect webserver to get result
             global.id1 = "";
             global.id2 = "";
             GetPackages pckg_input = new GetPackages(this, show_pckg);
@@ -41,7 +40,8 @@ public class DisplayAndCompare extends AppCompatActivity {
             ArrayList<String> pckg_id = result.get(7);
 
             //insert package result to package adaptor
-            PackageAdaptor packages = new PackageAdaptor(this, pckg_price, pckg_season, pckg_start, pckg_end, agent_contact, pckg_title, pckg_image, pckg_id);
+            PackageAdaptor packages = new PackageAdaptor(this, pckg_price, pckg_season,
+                    pckg_start, pckg_end, agent_contact, pckg_title, pckg_image, pckg_id);
             show_pckg.setAdapter(packages);
 
             show_pckg.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -62,7 +62,6 @@ public class DisplayAndCompare extends AppCompatActivity {
                         if(global.clickAmount < 2){
                             packages.updateCheck(position);
                             global.clickAmount += 1;
-
                             //add data to arraylist in global class
                             if(global.id1 == ""){
                                 global.id1 = pckg_id.get(position);

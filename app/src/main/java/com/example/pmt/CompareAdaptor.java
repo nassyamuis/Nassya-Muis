@@ -4,14 +4,8 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
-import android.widget.ListView;
 import android.widget.TextView;
-
-import org.w3c.dom.Text;
-
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class CompareAdaptor extends BaseAdapter {
@@ -50,9 +44,9 @@ public class CompareAdaptor extends BaseAdapter {
         TextView title2 = compare.findViewById(R.id.title_right);
 
         String[] split = comparison.get(position).split("\\|");
-        String res1,res2;
+        String res1, res2;
 
-        if(position>=6){
+        if(position >= 6){
             String[] split2 = split[1].split("~");
             String[] split3 = split[2].split("~");
 

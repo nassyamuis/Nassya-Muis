@@ -2,6 +2,7 @@ package com.example.pmt;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
@@ -20,6 +21,8 @@ public class compare extends AppCompatActivity {
         try {
             ImageView show_image1 = findViewById(R.id.imageView3);
             ImageView show_image2 = findViewById(R.id.imageView4);
+            ImageView recomm_left = findViewById(R.id.recommended_left);
+            ImageView recomm_right = findViewById(R.id.recommended_right);
             GridView comparison_result1 = findViewById(R.id.comparison_1);
 
             //connect webserver to get comparison result
@@ -36,6 +39,25 @@ public class compare extends AppCompatActivity {
             //get the image from database
             show_image1.setImageBitmap(global.image1);
             show_image2.setImageBitmap(global.image2);
+
+            String[] split1 = show_pckg1.get(1).split(" ");
+            String[] split2 = show_pckg2.get(1).split(" ");
+
+            String priceConvert1 = split1[1].replace(".","");
+            String priceConvert2 = split2[1].replace(".","");
+
+            double price1;
+            double price2;
+
+            price1 = Double.parseDouble(priceConvert1);
+            price2 = Double.parseDouble(priceConvert2);
+
+            //compare price
+            if(price1 < price2){
+                recomm_left.setVisibility(View.VISIBLE);
+            }else if (price2 < price1){
+                recomm_right.setVisibility(View.VISIBLE);
+            }
 
             //jumlah data 1 lebih besar sama dengan data2
             if(show_pckg1.size() >= show_pckg2.size()){
@@ -63,7 +85,7 @@ public class compare extends AppCompatActivity {
                     if(i < show_pckg2.size()){
                         data += show_pckg2.get(i);
                     }else{
-                        data += " ";
+                        data += " ~ ";
                     }
 
                     data_result.add(data);
@@ -86,7 +108,7 @@ public class compare extends AppCompatActivity {
                     }else if(i == 6){
                         data = "Itinerary|";
                     }else {
-                        data="|";
+                        data = "|";
                     }
 
                     data += show_pckg2.get(i) + "|";
@@ -94,7 +116,7 @@ public class compare extends AppCompatActivity {
                     if(i < show_pckg1.size()){
                         data += show_pckg1.get(i);
                     }else{
-                        data += " ";
+                        data += " ~ ";
                     }
                     data_result.add(data);
                 }
