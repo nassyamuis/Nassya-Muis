@@ -53,7 +53,8 @@
         android:layout_height="wrap_content"
         android:text="Departure"
         android:gravity="center"
-        android:textSize="16dp"/>
+        android:textSize="16dp"
+        android:textStyle="bold"/>
 
     <TextView
         android:id="@+id/textView6"
@@ -62,7 +63,7 @@
         android:text="Arrival"
         android:gravity="center"
         android:textSize="16dp"
-        />
+        android:textStyle="bold"/>
 
     <TextView
         android:id="@+id/textView8"

@@ -30,9 +30,7 @@ public class SearchPackage extends AppCompatActivity {
             red_display.putExtra("budget", budget);
             red_display.putExtra("season", inputseason);
             startActivity(red_display);
-
         } catch (NumberFormatException a){
-
         }
     }
 }

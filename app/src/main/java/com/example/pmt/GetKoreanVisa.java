@@ -19,7 +19,8 @@ public class GetKoreanVisa extends AsyncTask<String, String, ArrayList<String>> 
             conn = (HttpURLConnection) url.openConnection();
             conn.connect();
 
-            BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+            BufferedReader in = new BufferedReader(
+                    new InputStreamReader(conn.getInputStream()));
             String line;
             while((line = in.readLine()) != null){
                 String[] splitResult = line.split("\\|");

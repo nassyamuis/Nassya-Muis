@@ -19,19 +19,19 @@ public class getData extends AsyncTask<String, ArrayList, ArrayList> {
         String link = global.link + "getPackagesID.php?id=" + objects[0];
         HttpURLConnection conn = null;
         try{
-            URL url= new URL(link);
+            URL url = new URL(link);
             conn = (HttpURLConnection) url.openConnection();
             conn.connect();
             BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream()));
             String line;
             while((line = in.readLine()) != null){
                 String[] split = line.split("\\|");
-                result_details.add(split[0]);                                                       //title
-                result_details.add(split[1]);                                                       //price
-                result_details.add(split[2]);                                                       //season
-                result_details.add(split[3]);                                                       //depart
-                result_details.add(split[4]);                                                       //arrival
-                result_details.add(split[5]);                                                       //agent's contact
+                result_details.add(split[0]); //title
+                result_details.add(split[1]); //price
+                result_details.add(split[2]); //season
+                result_details.add(split[3]); //depart
+                result_details.add(split[4]); //arrival
+                result_details.add(split[5]); //agent's contact
             }
 
             String link_itinerary = global.link + "getItinerary.php?id=" + objects[0];

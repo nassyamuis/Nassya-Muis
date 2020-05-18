@@ -23,7 +23,7 @@ public class compare extends AppCompatActivity {
             ImageView show_image2 = findViewById(R.id.imageView4);
             ImageView recomm_left = findViewById(R.id.recommended_left);
             ImageView recomm_right = findViewById(R.id.recommended_right);
-            GridView comparison_result1 = findViewById(R.id.comparison_1);
+            GridView comparison_result = findViewById(R.id.comparison);
 
             //connect webserver to get comparison result
             GetComparison get_result1 = new GetComparison(this);
@@ -87,10 +87,9 @@ public class compare extends AppCompatActivity {
                     }else{
                         data += " ~ ";
                     }
-
                     data_result.add(data);
                 }
-            }else{ //data 2 lebih besar atau sama dengan data1
+            }else{                                              //data 2 lebih besar atau sama dengan data1
                 for(int i = 0; i < show_pckg2.size(); i++){
                     String data = "";
                     if(i == 0){
@@ -110,7 +109,6 @@ public class compare extends AppCompatActivity {
                     }else {
                         data = "|";
                     }
-
                     data += show_pckg2.get(i) + "|";
 
                     if(i < show_pckg1.size()){
@@ -124,7 +122,7 @@ public class compare extends AppCompatActivity {
 
             //insert data to each textview
             CompareAdaptor packages = new CompareAdaptor(this, data_result);
-            comparison_result1.setAdapter(packages);
+            comparison_result.setAdapter(packages);
 
         }catch (Exception e){
 

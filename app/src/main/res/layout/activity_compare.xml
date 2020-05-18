@@ -10,7 +10,6 @@
         android:id="@+id/imageView"
         android:layout_width="300dp"
         android:layout_height="100dp"
-        android:layout_marginTop="15dp"
         android:contentDescription="@drawable/logo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
@@ -36,7 +35,7 @@
         android:id="@+id/imageView3"
         android:layout_width="160dp"
         android:layout_height="110dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="30dp"
         app:layout_constraintEnd_toStartOf="@+id/imageView4"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -48,7 +47,7 @@
         android:id="@+id/imageView4"
         android:layout_width="160dp"
         android:layout_height="110dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="30dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/imageView3"
@@ -57,13 +56,13 @@
         tools:ignore="MissingConstraints" />
 
     <GridView
-        android:id="@+id/comparison_1"
+        android:id="@+id/comparison"
         android:layout_width="400dp"
         android:layout_height="0dp"
         android:layout_centerHorizontal="true"
         android:numColumns="1"
         android:paddingLeft="10dp"
-        android:paddingTop="15dp"
+        android:paddingTop="10dp"
         android:paddingRight="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -73,28 +72,30 @@
 
     <ImageView
         android:id="@+id/recommended_right"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
-        android:layout_marginEnd="36dp"
-        android:layout_marginRight="36dp"
-        android:layout_marginBottom="10dp"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_marginEnd="35dp"
+        android:layout_marginRight="35dp"
+        android:layout_marginBottom="45dp"
         android:visibility="invisible"
         app:layout_constraintBottom_toTopOf="@+id/imageView4"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/pgk_search"
-        app:srcCompat="@drawable/recommended" />
+        app:layout_constraintVertical_bias="0.317"
+        app:srcCompat="@drawable/rec" />
 
     <ImageView
         android:id="@+id/recommended_left"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
-        android:layout_marginStart="36dp"
-        android:layout_marginLeft="36dp"
-        android:layout_marginBottom="10dp"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginBottom="45dp"
         android:visibility="invisible"
         app:layout_constraintBottom_toTopOf="@+id/imageView3"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/pgk_search"
-        app:srcCompat="@drawable/recommended" />
+        app:layout_constraintVertical_bias="0.313"
+        app:srcCompat="@drawable/rec" />
 
 </android.support.constraint.ConstraintLayout>
