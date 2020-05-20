@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 public class global {
     //set global variable for database
-    public static String link = "http://192.168.0.8/PlanMyTrip/";
+    public static String link = "http://192.168.0.8/planmytrip/";
 
     //set global variable for comparison result page
     public static String id1 = "";

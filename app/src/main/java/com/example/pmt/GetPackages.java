@@ -5,6 +5,7 @@ import android.os.AsyncTask;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.util.Log;
 import android.widget.GridView;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -44,15 +45,17 @@ public class GetPackages extends AsyncTask<String, ArrayList, ArrayList> {
             BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream()));
             String line;
             while((line=in.readLine()) != null){
-                String[] split = line.split("\\|");
-                pckg_price.add(split[0]);
-                pckg_season.add(split[1]);
-                pckg_start.add(split[2]);
-                pckg_end.add(split[3]);
-                agent_contact.add(split[4]);
-                pckg_title.add(split[5]);
-                pckg_image.add(getImage(split[6]));
-                pckg_id.add(split[7]);
+                if(!line.equals("")){
+                    String[] split = line.split("\\|");
+                    pckg_price.add(split[0]);
+                    pckg_season.add(split[1]);
+                    pckg_start.add(split[2]);
+                    pckg_end.add(split[3]);
+                    agent_contact.add(split[4]);
+                    pckg_title.add(split[5]);
+                    pckg_image.add(getImage(split[6]));
+                    pckg_id.add(split[7]);
+                }
             }
 
             //get packages information
@@ -65,7 +68,7 @@ public class GetPackages extends AsyncTask<String, ArrayList, ArrayList> {
             result.add(pckg_image);
             result.add(pckg_id);
         }catch (Exception e){
-
+             Log.e("Exception", e.getMessage());
         }
         return result;
     }

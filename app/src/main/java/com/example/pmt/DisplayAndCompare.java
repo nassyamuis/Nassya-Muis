@@ -40,8 +40,7 @@ public class DisplayAndCompare extends AppCompatActivity {
             ArrayList<String> pckg_id = result.get(7);
 
             //insert package result to package adaptor
-            PackageAdaptor packages = new PackageAdaptor(this, pckg_price, pckg_season,
-                    pckg_start, pckg_end, agent_contact, pckg_title, pckg_image, pckg_id);
+            PackageAdaptor packages = new PackageAdaptor(this, pckg_price, pckg_season, pckg_start, pckg_end, agent_contact, pckg_title, pckg_image, pckg_id);
             show_pckg.setAdapter(packages);
 
             show_pckg.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -50,7 +49,7 @@ public class DisplayAndCompare extends AppCompatActivity {
                     if(global.checkState.get(position)){
                         global.clickAmount -= 1;
                         packages.updateCheck(position);
-                        //choose-choose package (delete data from arraylist)
+                        //choose-uchoose package (delete data from arraylist)
                         if(global.id1 == pckg_id.get(position)){
                             global.id1 = "";
                             global.image1 = null;

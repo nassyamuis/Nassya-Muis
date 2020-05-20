@@ -18,7 +18,7 @@ public class PackageDetails extends AppCompatActivity {
         Intent details_pckg = getIntent();
         String packagesID = details_pckg.getStringExtra("id");
 
-        //get comparison packages details
+        //assign requried data to xml file
         TextView title = findViewById(R.id.title_details);
         TextView price = findViewById(R.id.price_details);
         TextView season = findViewById(R.id.season_details);
@@ -27,24 +27,23 @@ public class PackageDetails extends AppCompatActivity {
         TextView contact = findViewById(R.id.agent_details);
         ListView itinerary = findViewById(R.id.itinerary_details);
 
-
         try {
             getData pckg_input = new getData(this);
             pckg_input.execute(packagesID);
 
             //connect webserver to get the result of itinerary
             ArrayList<String> result = pckg_input.get();
-            title.setText(result.get(0));
-            price.setText(result.get(1));
-            season.setText(result.get(2));
-            start.setText(result.get(3));
-            end.setText(result.get(4));
-            contact.setText(result.get(5));
+            title.setText(result.get(1));
+            price.setText(result.get(2));
+            season.setText(result.get(3));
+            start.setText(result.get(4));
+            end.setText(result.get(5));
+            contact.setText(result.get(6));
 
             //get itinerary details
             ArrayList<String> details_itinerary = result;
 
-            for(int i = 0; i < 6; i++){
+            for(int i = 0; i <= 6; i++){
                details_itinerary.remove(0);
             }
 

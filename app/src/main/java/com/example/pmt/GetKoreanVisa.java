@@ -21,13 +21,18 @@ public class GetKoreanVisa extends AsyncTask<String, String, ArrayList<String>> 
 
             BufferedReader in = new BufferedReader(
                     new InputStreamReader(conn.getInputStream()));
-            String line;
-            while((line = in.readLine()) != null){
-                String[] splitResult = line.split("\\|");
-                    if(!splitResult[0].equals(""))
-                    korean_visa.add(splitResult[0]);
-                    if(!splitResult[1].equals(""))
-                    korean_visa.add(splitResult[1]);
+            String line = in.readLine();
+            while(line != null){
+                if(!line.equals("")) {
+                    String[] splitResult = line.split("\\|");
+
+                    if (!splitResult[0].equals(""))
+                        korean_visa.add(splitResult[0]);
+
+                    if (!splitResult[1].equals(""))
+                        korean_visa.add(splitResult[1]);
+                }
+                line=in.readLine();
             }
         }catch(Exception e){
             Log.e("Exception", e.getMessage());

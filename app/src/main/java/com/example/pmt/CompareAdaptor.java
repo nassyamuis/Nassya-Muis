@@ -8,7 +8,7 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 import java.util.ArrayList;
 
-public class CompareAdaptor extends BaseAdapter {
+public class CompareAdaptor extends BaseAdapter { // handles to assign data layout
     private Context c;
 
     private ArrayList<String> comparison;
@@ -37,6 +37,8 @@ public class CompareAdaptor extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         View compare = convertView;
         LayoutInflater inflater = (LayoutInflater) c.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+
+        // assign data to xml file
         compare = inflater.inflate(R.layout.compare_grid_1, null);
         TextView package1 = compare.findViewById((R.id.compare1));
         TextView package2 = compare.findViewById((R.id.compare2));

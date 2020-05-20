@@ -26,9 +26,11 @@ public class GetComparison extends AsyncTask<String, ArrayList, ArrayList> {
             BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream()));
             String line;
             while((line = in.readLine()) != null){
-                String[] split = line.split("\\|");
-                for(int i = 0; i < split.length; i++){
-                    result_details.add(split[i]);
+                if(!line.equals("")){
+                    String[] split = line.split("\\|");
+                    for(int i = 0; i < split.length; i++){
+                        result_details.add(split[i]);
+                    }
                 }
             }
 

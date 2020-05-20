@@ -70,9 +70,11 @@ public class PackageAdaptor extends BaseAdapter{
     public View getView(int position, View convertView, ViewGroup parent) {
         View pckg_grid = convertView;
         LayoutInflater inflater = (LayoutInflater) c.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        // assign data to xml file
         pckg_grid = inflater.inflate(R.layout.package_grid, null);
         ImageView checkBox = pckg_grid.findViewById((R.id.imageView));
         ImageView image = pckg_grid.findViewById((R.id.imageView2));
+        TextView id = pckg_grid.findViewById(R.id.package_id);
         TextView title = pckg_grid.findViewById(R.id.textView);
         TextView price = pckg_grid.findViewById(R.id.textView7);
         TextView season = pckg_grid.findViewById(R.id.textView4);
@@ -83,6 +85,7 @@ public class PackageAdaptor extends BaseAdapter{
 
         //handles the position of each data to be shown on the app
         image.setImageBitmap(pckg_image.get(position));
+        id.setText(pckg_id.get(position));
         title.setText(pckg_title.get(position));
         price.setText(pckg_price.get(position));
         season.setText(pckg_season.get(position));

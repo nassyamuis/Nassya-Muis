@@ -25,13 +25,16 @@ public class getData extends AsyncTask<String, ArrayList, ArrayList> {
             BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream()));
             String line;
             while((line = in.readLine()) != null){
-                String[] split = line.split("\\|");
-                result_details.add(split[0]); //title
-                result_details.add(split[1]); //price
-                result_details.add(split[2]); //season
-                result_details.add(split[3]); //depart
-                result_details.add(split[4]); //arrival
-                result_details.add(split[5]); //agent's contact
+                if(!line.equals("")){
+                    String[] split = line.split("\\|");
+                    result_details.add(split[0]); //package id
+                    result_details.add(split[1]); //title
+                    result_details.add(split[2]); //price
+                    result_details.add(split[3]); //season
+                    result_details.add(split[4]); //depart
+                    result_details.add(split[5]); //arrival
+                    result_details.add(split[6]); //agent's contact
+                }
             }
 
             String link_itinerary = global.link + "getItinerary.php?id=" + objects[0];
@@ -44,9 +47,11 @@ public class getData extends AsyncTask<String, ArrayList, ArrayList> {
             BufferedReader in_itinerary = new BufferedReader(new InputStreamReader(conn_itinerary.getInputStream()));
             String line_itinerary;
             while((line_itinerary = in_itinerary.readLine()) != null){
-                String[] split = line_itinerary.split("\\|");
-                result_details.add("Day " + split[0]); //itinerary's label
-                result_details.add(split[1]); //itinerary's details
+                if(!line_itinerary.equals("")){
+                    String[] split = line_itinerary.split("\\|");
+                    result_details.add("Day " + split[0]); //itinerary's label
+                    result_details.add(split[1]); //itinerary's details
+                    }
                 }
         }catch (Exception e){
 

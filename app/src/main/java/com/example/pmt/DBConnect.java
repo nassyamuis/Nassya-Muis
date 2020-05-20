@@ -7,7 +7,7 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-public class DBConnect {
+public class DBConnect { // handles db connection
     Connection connect;
 
     public DBConnect(){
